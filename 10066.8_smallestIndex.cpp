@@ -4,9 +4,8 @@ using namespace std;
 class Solution {
 public:
 
-int smallestIndex(vector<int> &nums);
-int sumOfDigits(int n);
-bool comparePairs(const std::pair<int, int>& a, const std::pair<int, int>& b);
+    int smallestIndex(vector<int> &nums);
+    int sumOfDigits(int n);
 
 };
 
@@ -14,8 +13,12 @@ int main() {
     Solution solution1;
     int len;
     vector<int> nums;
+
+    cout << "input len: ";
     cin >> len;
     nums.resize(len);
+
+    cout << "input nums vector: ";
     for(int i=0; i < len; i++) {
         cin >> nums[i];
     }
@@ -25,29 +28,16 @@ int main() {
 }
 
 int Solution::smallestIndex(vector<int> &nums) {   
-    map<int, int> M;
-    for(int i=0; i<nums.size(); i++) {
-        M[i] = nums[i];
-    }
-    // for(auto i: M) {
-    //     cout << i.first << ": " << i.second << "\n";
-    // }
-    
-    map<int, int> sumMap;
+
+    int ans = -1;
     for(int i=0; i<nums.size(); i++) {
         int temp = sumOfDigits(nums[i]);
-        sumMap[nums[i]] = temp;
+        if(i == temp) {
+            ans = i;
+            break;
+        }
     }
-
-    // Copy map elements to a vector of pairs
-    vector<pair<int, int>> mapVector(sumMap.begin(), sumMap.end());
-
-    // Sort the vector using the custom comparison function
-    sort(mapVector.begin(), mapVector.end(), comparePairs);
-
-    cout << "mapVector[0]= " << mapVector[0].second << "\n";
-
-    return -1;
+    return ans;
 }
 
 int Solution::sumOfDigits(int n) {
@@ -64,9 +54,4 @@ int Solution::sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
-}
-
-// Define a comparison function to sort pairs by their second element (value)
-bool Solution::comparePairs(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return a.second < b.second;
 }
