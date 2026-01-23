@@ -1,5 +1,6 @@
 // Approach-1: shrinking Sliding Window
 // Uses a while loop
+// optimized code by removing variable countOf1s calculations
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -74,5 +75,6 @@ void solve(vector<int>& arr, int& n, int& k) {
     cout << maxWindowLength << "\n";
     return;
 }
+
 
 
