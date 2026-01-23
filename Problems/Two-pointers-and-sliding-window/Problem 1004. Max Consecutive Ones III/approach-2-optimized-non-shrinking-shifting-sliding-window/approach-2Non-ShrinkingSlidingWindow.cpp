@@ -1,3 +1,5 @@
+// Approach-2 Non-shrinking Sliding Window
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -71,3 +73,4 @@ void solve(vector<int>& arr, int& n, int& k) {
     cout << maxWindowLength << "\n";
     return;
 }
+
