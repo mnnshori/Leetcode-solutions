@@ -1,4 +1,5 @@
 // moving sliding-window approach
+// optimized by removing currentWindowLength calculations
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -111,4 +112,5 @@ void solve(vector<int>& arr, int& n, int& k) {
     // cout << "leftPointer = " << leftPointer << "\n";
     // cout << "rightPointer = " << rightPointer << "\n";
     return;
+
 }
